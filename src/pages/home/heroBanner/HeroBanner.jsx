@@ -32,13 +32,19 @@ function HeroBanner() {
  
 
   const searchQueryHandler=(e)=>{
-    if(e.key=="Enter" && query.length>0)
+    if((e.key=="Enter" && query.length>0) )
     {
       
       navigate(`/search/${query}`)
     }
     }
 
+    const searchHandle=()=>{
+      navigate(`/search/${query}`)
+
+      
+
+    }
   return (
     <div>
      <div className="heroBanner">
@@ -63,7 +69,7 @@ function HeroBanner() {
               placeholder='search for TV shows or movie'
             
             />
-            <button  > Search</button>
+            <button onClick={searchHandle}  > Search</button>
             
             
           </div>
