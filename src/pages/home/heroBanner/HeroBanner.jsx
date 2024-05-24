@@ -40,6 +40,7 @@ function HeroBanner() {
     }
 
     const searchHandle=()=>{
+      if(query.length>0)
       navigate(`/search/${query}`)
 
       
