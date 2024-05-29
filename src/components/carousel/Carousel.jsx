@@ -48,62 +48,65 @@ function Carousel({ data, loading ,endpoint,title}) {
 
     return (
         <div className="carousel">
-            <ContentWrapper>
-                {title && (
-                    <div className="carouselTitle">{title}</div>
-                )}
-                <BsFillArrowLeftCircleFill
-                    className="carouselLeftNav arrow"
-                    onClick={() => navigation("left")}
-                />
-
-                <BsFillArrowRightCircleFill
-                    className="carouselRighttNav arrow"
-                    onClick={() => navigation("right")}
-                />
-
-                {!loading ? (
-                    <div className="carouselItems" ref={corouselContainer}>
-                        {data?.map((item) => {
-                            const posterUrl = item.poster_path
-                                ? url.poster + item.poster_path
-                                : PosterFallback;
-                            return (
-                                <div key={item.id} className="carouselItem" 
-                                
-                                onClick={()=>navigate(`/${endpoint  ||  item.media_type}/${item.id}`)}>
-                                    <div className="posterBlock">
-                                        <Img src={posterUrl} />
-                                        <CircleRating
-                                            rating={item.vote_average.toFixed(
-                                                1
-                                            )}
-                                        />
-                                        <Genres data={item.genre_ids.slice(0, 2)} />
+            {
+                data?.length>0  && ( <ContentWrapper>
+                    {title && (
+                        <div className="carouselTitle">{title}</div>
+                    )}
+                    <BsFillArrowLeftCircleFill
+                        className="carouselLeftNav arrow"
+                        onClick={() => navigation("left")}
+                    />
+    
+                    <BsFillArrowRightCircleFill
+                        className="carouselRighttNav arrow"
+                        onClick={() => navigation("right")}
+                    />
+    
+                    {!loading ? (
+                        <div className="carouselItems" ref={corouselContainer}>
+                            {data?.map((item) => {
+                                const posterUrl = item.poster_path
+                                    ? url.poster + item.poster_path
+                                    : PosterFallback;
+                                return (
+                                    <div key={item.id} className="carouselItem" 
+                                    
+                                    onClick={()=>navigate(`/${endpoint  ||  item.media_type}/${item.id}`)}>
+                                        <div className="posterBlock">
+                                            <Img src={posterUrl} />
+                                            <CircleRating
+                                                rating={item.vote_average.toFixed(
+                                                    1
+                                                )}
+                                            />
+                                            <Genres data={item.genre_ids.slice(0, 2)} />
+                                        </div>
+                                        <div className="textBlock">
+                                            <span className="title" style={{ color: "white" }}>
+                                                {item.title || item.name}
+                                            </span>
+                                            <span className="date" style={{ color: "white" }}>
+                                            {dayjs(item.release_date || item.first_air_date).format(
+                                                    "MMM D YYYY"
+                                                )}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className="textBlock">
-                                        <span className="title" style={{ color: "white" }}>
-                                            {item.title || item.name}
-                                        </span>
-                                        <span className="date" style={{ color: "white" }}>
-                                        {dayjs(item.release_date || item.first_air_date).format(
-                                                "MMM D YYYY"
-                                            )}
-                                        </span>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                ) : (
-                    <div className="loadingSkeleton">
-                        {skItem()}
-                        {skItem()}
-                        {skItem()}
-                        {skItem()}
-                    </div>
-                )}
-            </ContentWrapper>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <div className="loadingSkeleton">
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                            {skItem()}
+                        </div>
+                    )}
+                </ContentWrapper>)
+            }
+           
         </div>
     );
 }

@@ -20,7 +20,10 @@ function Details() {
 
       <Cast data={credits?.cast} loading={creditsLoading}> </Cast>
       <VideosSection data={data} loading={loading}></VideosSection>
+      {
+        
       <Similar mediaType={mediaType} id={id} ></Similar>
+      }
       <Recommendation mediaType={mediaType} id={id}></Recommendation>
 
 
