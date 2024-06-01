@@ -5,7 +5,7 @@ import {
     FaInstagram,
     FaTwitter,
     FaLinkedin,
-    FaGit,
+
     FaGithub,
     FaLinkedinIn,
     FaCodepen,
@@ -31,7 +31,7 @@ const Footer = () => {
                 <div className="infoText">
                
 
-Your React JS app leverages the TMDB database to present trending, popular, recommended, and similar movies, ensuring users enjoy a holistic movie exploration journey. Its user-friendly search function enables effortless discovery of desired movies, enriching their cinematic experience with diverse content. Fueled by React components, the app delivers a smooth interface, empowering users to seamlessly explore and interact with movie data, establishing itself as a preferred destination for movie lovers.
+ React JS app leverages the TMDB database to present trending, popular, recommended, and similar movies, ensuring users enjoy a holistic movie exploration journey. Its user-friendly search function enables effortless discovery of desired movies, enriching their cinematic experience with diverse content. Fueled by React components, the app delivers a smooth interface, empowering users to seamlessly explore and interact with movie data, establishing itself as a preferred destination for movie lovers.
                 </div>
                 <div className="socialIcons">
                     <span className="icon">

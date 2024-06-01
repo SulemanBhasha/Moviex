@@ -64,10 +64,10 @@ function Header() {
     {
       
       navigate(`/search/${query}`)
+      setTimeout(() => {
+        setShowSearch(false)
+      }, 1000);
     }
-    setTimeout(() => {
-      setShowSearch(false)
-    }, 5000);
     }
 
     const navigateHandler=(type)=>{
